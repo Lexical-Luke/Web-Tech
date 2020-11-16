@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagevisitcounter-inator</title>
+
+    <script>
+        const hitcounter = function() {
+            const StoreFactory = function(name, type) {
+                'use strict';
+                const engine = !type || type.toLowerCase() === 'local' ? localStorage : sessionStorage;
+
+                const set = function(data) {
+                    engine.setItem(name, JSON.stringify(data));
+                };
+
+                const get = function() {
+                    return exists(name) ? JSON.parse(engine.getItem(name)) : false;
+                };
+
+                const remove = function() {
+                    engine.removeItem(name);
+                };
+
+                const exists = function() {
+                    return engine.getItem(name) == null ? false : true;
+                };
+
+                const create = function() {
+                    if (!exists()) set(arguments[0] || {});
+                };
+
+                return Object.freeze({
+                    set,
+                    get,
+                    exists,
+                    create,
+                    remove
+                });
+            };
+
+            const clickhandler = function(e) {
+                oSpan.innerText = oSpan.innerText = '';
+                oP.innerText = oP.innerText = '';
+
+                let data = oStore.get();
+                data.name = data.hasOwnProperty('name') ? document.getElementById('name').value : "NO NAME";
+                oStore.set(data);
+
+                if (data.name || data.name != '') {
+                    oP.innerText = 'Hi ' + data.name + '. Pls check this space for new stuff! ';
+                }
+
+                if (data.visits % 5 == 0) {
+                    oSpan.innerText = 'On behalf of the Server thank you for being a fan of our page';
+                } else {
+                    oH1.innerText = 'A big thank you from Pagevisitcounter-inator. Pls continue to visit us!';
+                }
+
+            };
+
+            const loadHandler = function() {
+                let data = oStore.get();
+                //alert(data.visits);
+                if (data.name || data.name != "") {
+                    oP.innerText = 'Hi ' + data.name + '. Pls check this space for new stuff! ';
+                }
+
+                if (data.visits % 5 == 0) {
+                    oSpan.innerText = 'On behalf of the Server thank you for being a fan of our page';
+                } else {
+                    oH1.innerText = 'A big thank you from Pagevisitcounter-inator. Pls continue to visit us!';
+                }
+            };
+
+            let oStore = new StoreFactory('sessionStorage');
+            oStore.create();
+            let data = oStore.get();
+            data.visits = data.hasOwnProperty('visits') ? parseInt(data.visits) + 1 : 1;
+            oStore.set(data);
+
+            let oH1 = document.querySelector('form > H1');
+            let oP = document.querySelector('form > p');
+            let oSpan = document.querySelector('form > span');
+            let oBttn = document.querySelector('form > input[ type="button"]');
+            document.addEventListener('DOMContentLoaded', loadHandler());
+            oBttn.addEventListener('click', clickhandler)
+        }
+        document.addEventListener('DOMContentLoaded', hitcounter);
+    </script>
+</head>
+
+<body>
+    <form method='post'>
+        <label for="name">Enter your name.</label><br>
+        <input type="text" id="name" size="20"><br>
+        <p></p>
+        <h1></h1>
+        <span></span>
+        <br>
+        <input type='button' value='Load data' />
+    </form>
+</body>
+
+</html>

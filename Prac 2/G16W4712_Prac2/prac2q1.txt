@@ -1,0 +1,15 @@
+Content for the table
+Web Technology Topics with Lecture Hours and  Contribution to Final Mark
+Unit No
+Unit Title
+No of Hours
+Contribution Towards the Final Mark
+Prac   Test   Exam  Total Marks 
+
+Introduction to Web Technology
+Introduction to HTML & CSS
+Advanced HTLM and CSS
+JavaScript and the DOM
+PHP
+JQuery and Ajax
+Total

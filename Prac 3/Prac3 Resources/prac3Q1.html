@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function() {
+            let d = new Date();
+
+            var wgreet = d.getHours() >= 12 ? "Good Afternoon!" : "Good Morning!";
+            document.getElementById('greeting').innerHTML = wgreet;
+
+            document.getElementById('lDate').innerHTML = "It is " + d;
+            document.getElementById('hour').innerHTML = "The Hour is " + d.getHours();
+            document.getElementById('min').innerHTML = "The Minute is " + d.getMinutes();
+            document.getElementById('sec').innerHTML = "The Second is " + d.getSeconds();
+            document.getElementById('sDate').innerHTML = "The date in short date format is: " + d.toLocaleDateString();
+
+        };
+    </script>
+
+</head>
+
+<body>
+    <h1>Current date and time information</h1>
+    <h2 id="greeting">JS not working</h2>
+    <p id="lDate"></p>
+    <p id="hour"></p>
+    <p id="min"></p>
+    <p id="sec"></p>
+    <p id="sDate"></p>
+</body>
+
+</html>

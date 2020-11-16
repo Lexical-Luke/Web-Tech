@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="utf-8">
+    <title>HTML Forms</title>
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="prac2q2.css" />
+</head>
+
+<body>
+
+    <form method="post" action="/process.php" id="photoform">
+        <table>
+            <caption style="text-align: center;">Photo Details</caption>
+            <div id="top">
+                <tr>
+                    <td colspan="2"><label for="title"><br>Title</label><br>
+                        <input type="text" id="title" name="title" size="81" value="Sunlight in Calgary"><br></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><label for="description"><br>Description</label><br>
+                        <textarea rows="6" cols="70" name="comment" form="photoform">It was such a surprise to see it, but the sun came out</textarea><br><br></td>
+                </tr>
+            </div>
+            <tr>
+                <td><label for="continent">Continent <br></label>
+                    <select name="continent" id="continent">
+                    <option value="North America">North America</option>
+                    <option value="******">*****</option>
+                  </select></td>
+                <td>
+                    <table style="border: 1px solid blue;">
+                        <tr>
+                            <td>Copyright? <br>
+                                <input type="radio" name="copyright" value="1">All rights reserved <br>
+                                <input type="radio" name="copyright" value="2">Creative Commons
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="country">Country <br></label>
+                    <select name="country" id="country">
+                   <option value="Canada">Canada</option>
+                   <option value="******">*****</option>
+                 </select></td>
+
+            </tr>
+            <tr>
+                <td><label for="city">City</label><br>
+                    <input type="text" id="city" name="city" size="25" value="Calagray"><br></td>
+                <td>
+                    <table style="border: 1px solid blue;">
+                        <tr>
+                            <td><label for="CCtype">Creative Commons Types<br></label>
+                                <input type="checkbox" name="CCtype" value="Attribution">Attribution<br>
+                                <input type="checkbox" name="CCtype" value="Non-commercial">Non-commercial<br>
+                                <input type="checkbox" name="CCtype" value="Non Derivative Works">Non Derivative Works<br>
+                                <input type="checkbox" name="CCtype" value="Share Alike">Share Alike<br>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"><br><label for="accept"> I accept the software license   
+                  <input type="checkbox" name="accept" value="accept"></label><br><br></td>
+            </tr>
+            <tr>
+                <div id="bottomLeft">
+                    <td>
+                        <label for="rate">Rate this photo (1 - 5): <br></label>
+                        <input type="number" id="rate" name="rate" min="1" max="5">
+                    </td>
+                    <div id="bottomRight">
+                        <td>
+                            <table style="border: 1px solid blue;">
+                                <tr>
+                                    <td><label for="dateTaken"> <br> Date Taken: <br></label>
+                                        <input type="date" id="dateTaken" name="dateTaken">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><label for="timeTaken"> <br> Time Taken: <br></label>
+                                        <input type="time" id="timeTaken" name="timeTaken">
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </div>
+                    <tr></tr>
+                    <td>
+                        <label for="colorPicker">Colour Collection: <br></label>
+                        <input type="color" id="colorPicker" name="colorPicker">
+                    </td>
+                </div>
+            </tr>
+            <tr>
+                <td class="center"><input type="submit" value="Submit"></td>
+                <td class="center"><br><input type="reset" value="Clear Form"><br><br></td>
+            </tr>
+        </table>
+    </form>
+
+
+</body>
+
+</html>

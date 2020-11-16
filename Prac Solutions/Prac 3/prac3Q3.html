@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<!-- JSExDate.html -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>JavaScript program to explain the Date object</title>
+  <script>
+    function calculate() {
+	var myTable = document.getElementById("score");    
+	var sum=0;
+	for (var i = 1; i < myTable.rows.length-1; i++) {
+		sum = sum + parseInt(myTable.rows[i].cells[1].innerText);
+	
+	}
+	 myTable.rows[4].cells[1].innerText=(sum/3)+"%";
+	 
+	newel=document.createElement("P");
+	newel.innerHTML="Well done!";
+	document.getElementById("container").appendChild(newel);
+	}
+	
+	
+	</script>
+	
+	
+	<style>
+	table, tr, td {
+	border: 1px solid black;
+	border-collapse: collapse;
+	}
+	
+		
+	#container {
+
+		margin: auto;
+		width: 60%;
+		border: 5px solid grey;
+		//background-color:grey;
+		padding: 10px;
+		text-align:center;	
+
+	}
+	
+	
+	table {
+		display: inline-table;
+
+	}
+		
+
+	</style>
+	
+</head>
+<body>
+<div id="container">
+<h1>Exam result table </h1>
+  <table id="score" style="border: 1px solid black">
+    <tr>
+      <td>Test</td>
+      <td>Result</td>
+    </tr>
+    <tr>
+      <td>A</td>
+      <td>87%</td>
+    </tr>
+    <tr>
+      <td>B</td>
+      <td>78%</td>
+    </tr>
+    <tr>
+      <td>C</td>
+      <td>81%</td>
+    </tr>
+	<tr>
+      <td>Average</td>
+      <td></td>
+    </tr>
+  </table>
+  </br>
+  </br>
+  <button onclick="calculate()">Calculate Average</button>
+  </div>
+  </body>
+  </html>
